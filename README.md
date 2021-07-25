@@ -15,7 +15,7 @@ The CRM Service is a REST API to manage customer data for a small shop.
 | username | string |           | YES      |                |
 | email    | string |           | YES      | RegExp, Unique |
 | password | string |           | YES      |                |
-| role     | string |           | NO       |                |
+| role     | string |           | NO       | Enum           |
 
 ### CUSTOMERS
 
