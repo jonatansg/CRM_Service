@@ -12,7 +12,7 @@ module.exports = {
 function createCustomer(req, res) {
   console.log(req.body);
   CustomerModel.create({
-    _id: req.body.id,
+    id: req.body.id,
     name: req.body.name,
     surname: req.body.surname,
     photo: req.body.photo,
