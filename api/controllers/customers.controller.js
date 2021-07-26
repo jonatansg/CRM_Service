@@ -1,5 +1,6 @@
 const CustomerModel = require("../models/customers.model");
 const { handleError } = require("../utils");
+const mongoose = require("mongoose");
 
 module.exports = {
   createCustomer,
@@ -16,6 +17,7 @@ function createCustomer(req, res) {
     name: req.body.name,
     surname: req.body.surname,
     photo: req.body.photo,
+    createdBy: mongoose.Types.ObjectId(req.body.user),
   })
     .then((response) => res.json(response))
     .catch((err) => handleError(err, res));
@@ -23,6 +25,7 @@ function createCustomer(req, res) {
 
 function getAllCustomers(req, res) {
   CustomerModel.find()
+    .populate("user")
     .then((response) => res.json(response))
     .catch((err) => handleError(err, res));
 }

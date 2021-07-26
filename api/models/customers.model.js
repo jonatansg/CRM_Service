@@ -16,6 +16,10 @@ const customerSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+  },
 });
 
 const customerModel = mongoose.model("customer", customerSchema);
